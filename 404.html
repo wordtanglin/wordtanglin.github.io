@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="tanglin&#39;s blog">
 <meta property="og:description" content="&amp;lt; !DOCTYPE html&amp;gt;            404页面">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T09:46:49.718Z">
+<meta property="og:updated_time" content="2018-08-22T09:53:43.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tanglin&#39;s blog">
 <meta name="twitter:description" content="&amp;lt; !DOCTYPE html&amp;gt;            404页面">
@@ -133,6 +133,41 @@
 
 
 
+
+
+<script>
+var fnTextPopup = function (arr, options) {
+    // arr参数是必须的
+    if (!arr || !arr.length) {
+        return;
+    }
+    // 主逻辑
+    var index = 0;
+    document.documentElement.addEventListener('click', function (event) {
+        var x = event.pageX, y = event.pageY;
+        var eleText = document.createElement('span');
+        eleText.className = 'text-popup';
+        this.appendChild(eleText);
+        if (arr[index]) {
+            eleText.innerHTML = arr[index];
+        } else {
+            index = 0;
+            eleText.innerHTML = arr[0];
+        }
+        // 动画结束后删除自己
+        eleText.addEventListener('animationend', function () {
+            eleText.parentNode.removeChild(eleText);
+        });
+        // 位置
+        eleText.style.left = (x - eleText.clientWidth / 2) + 'px';
+        eleText.style.top = (y - eleText.clientHeight) + 'px';
+        // index递增
+        index++;
+    });
+};
+
+fnTextPopup(['富强', '民主', '文明', '和谐', '自由', '平等', '公正', '法治', '爱国', '敬业', '诚信', '友善']);
+</script>
 
   <title> | tanglin's blog</title>
   
@@ -327,7 +362,7 @@
     <title>404页面</title>
 </head>
 <body>
-<script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8" homepageurl="http://yoursite.com/yourPage.html" homepagename="回到我的主页"></script>
+<script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8" homepageurl="https://wordtanglin.github.io/" homepagename="回到我的主页"></script>
 </body>
 
 </html>
